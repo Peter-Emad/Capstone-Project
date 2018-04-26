@@ -17,6 +17,8 @@ public class Constants {
         public static final String LAST_CAR_MODEL_VIEWED = "last_car_model_viewed";
         public static final String LAST_CAR_MAKE_VIEWED = "last_car_make_viewed";
         public static final String LAST_CAR_ADDRESS_VIEWED = "last_car_address_viewed";
+        public static final String CAR_IMAGE_FILE_PATH = "car_image_file_path";
+        public static final String CAR_IMAGE_FILE_URI = "car_image_file_uri";
 
     }
 }

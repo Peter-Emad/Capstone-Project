@@ -13,9 +13,9 @@ import masro2a.udacity.com.masro2aapp.common.base.BaseActivity;
  * Created by peter on 23/04/18.
  */
 
-public class AddReportActivity extends BaseActivity implements AddReportFragment.AddReportInteraction {
+public class AddReportActivity extends BaseActivity implements AddPostFragment.AddReportInteraction {
 
-    private AddReportFragment addReportFragment;
+    private AddPostFragment addPostFragment;
 
     public static void startActivity(Context context) {
         Intent intent = new Intent(context, AddReportActivity.class);
@@ -29,9 +29,9 @@ public class AddReportActivity extends BaseActivity implements AddReportFragment
         setContentView(R.layout.activity_add_post);
         initializeViews();
         if (savedInstanceState != null)
-            addReportFragment = (AddReportFragment) getSupportFragmentManager().getFragment(savedInstanceState, AddReportFragment.class.getName());
+            addPostFragment = (AddPostFragment) getSupportFragmentManager().getFragment(savedInstanceState, AddPostFragment.class.getName());
         else
-            addReportFragment = AddReportFragment.newInstance();
+            addPostFragment = AddPostFragment.newInstance();
         loadFragment();
         setListeners();
     }
@@ -45,7 +45,7 @@ public class AddReportActivity extends BaseActivity implements AddReportFragment
     @Override
     protected void loadFragment() {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.container_body, addReportFragment).commit();
+        fragmentTransaction.replace(R.id.container_body, addPostFragment).commit();
     }
 
     @Override
@@ -61,7 +61,7 @@ public class AddReportActivity extends BaseActivity implements AddReportFragment
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        if (addReportFragment != null)
-            getSupportFragmentManager().putFragment(outState, AddReportFragment.class.getName(), addReportFragment);
+        if (addPostFragment != null)
+            getSupportFragmentManager().putFragment(outState, AddPostFragment.class.getName(), addPostFragment);
     }
 }

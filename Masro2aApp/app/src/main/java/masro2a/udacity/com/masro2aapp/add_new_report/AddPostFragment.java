@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.widget.AppCompatEditText;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -45,7 +46,7 @@ import static android.app.Activity.RESULT_OK;
  * Created by peter on 23/04/18.
  */
 
-public class AddReportFragment extends PermissionHandlerFragment implements PermissionsListener, AddReportView {
+public class AddPostFragment extends PermissionHandlerFragment implements PermissionsListener, AddReportView {
 
     private LinearLayout lnrAddCarImage;
     private ImageView imgCar;
@@ -56,14 +57,15 @@ public class AddReportFragment extends PermissionHandlerFragment implements Perm
     private Context context;
     private LatLng carLatLng = null;
     private Uri carImageUri;
+    private String carImagePath;
     private AddReportPresenter addReportPresenter;
     private ProgressBar carPostProgressBar;
     private RelativeLayout rlCarPostContainer;
     private AddReportInteraction addReportInteraction;
 
 
-    public static AddReportFragment newInstance() {
-        return new AddReportFragment();
+    public static AddPostFragment newInstance() {
+        return new AddPostFragment();
     }
 
     interface AddReportInteraction {
@@ -80,6 +82,10 @@ public class AddReportFragment extends PermissionHandlerFragment implements Perm
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_add_post, container, false);
+        if (savedInstanceState != null) {
+            carImagePath = savedInstanceState.getString(Constants.GeneralKeys.CAR_IMAGE_FILE_PATH, "");
+            carImageUri = Uri.parse(savedInstanceState.getString(Constants.GeneralKeys.CAR_IMAGE_FILE_URI, ""));
+        }
         initializeViews(view);
         setListeners();
         setHasOptionsMenu(true);
@@ -116,6 +122,9 @@ public class AddReportFragment extends PermissionHandlerFragment implements Perm
         etContactInfo = v.findViewById(R.id.etContactInfo);
         rlCarPostContainer = v.findViewById(R.id.rlCarPostContainer);
         carPostProgressBar = v.findViewById(R.id.carPostProgressBar);
+
+        if (!TextUtils.isEmpty(carImagePath))
+            imgCar.setImageBitmap(MediaPickerHelper.getImageBitmap(carImagePath));
 
     }
 
@@ -214,6 +223,7 @@ public class AddReportFragment extends PermissionHandlerFragment implements Perm
                     if (carBitmap != null) {
                         imgCar.setImageBitmap(carBitmap);
                         carImageUri = fileUri.get(0);
+                        carImagePath = filePath.get(0);
                     }
                 }
             }
@@ -249,5 +259,12 @@ public class AddReportFragment extends PermissionHandlerFragment implements Perm
     public void onAddSuccess() {
         UiUtils.showToast(context, context.getString(R.string.post_added));
         addReportInteraction.onPostAddSuccess();
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString(Constants.GeneralKeys.CAR_IMAGE_FILE_PATH, carImagePath);
+        outState.putString(Constants.GeneralKeys.CAR_IMAGE_FILE_URI, String.valueOf(carImageUri));
     }
 }
