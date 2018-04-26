@@ -7,4 +7,8 @@ import masro2a.udacity.com.masro2aapp.common.base.BaseView;
  */
 
 public interface AddReportView extends BaseView {
+
+    void showValidationErrors(boolean isCarMakeSelected, boolean isValidCarModel, boolean isValidCarLocation);
+
+    void onAddSuccess();
 }

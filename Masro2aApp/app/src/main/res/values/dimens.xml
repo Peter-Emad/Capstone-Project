@@ -25,5 +25,16 @@
     <dimen name="margin_xxlarge">46dp</dimen>
     <dimen name="margin_xxxlarge">60dp</dimen>
     <dimen name="margin_xxxxlarge">72dp</dimen>
+    <dimen name="media_picker_grid_size">90dp</dimen>
+    <dimen name="car_image_max_height">200dp</dimen>
+    <dimen name="card_corner_radius">4dp</dimen>
+    <dimen name="card_elevation">2dp</dimen>
+    <dimen name="image_car_post_size">120dp</dimen>
+
+    <!--
+Refer to App Widget Documentation for margin information
+http://developer.android.com/guide/topics/appwidgets/index.html#CreatingLayout
+    -->
+    <dimen name="widget_margin">8dp</dimen>
 
 </resources>

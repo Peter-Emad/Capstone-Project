@@ -13,12 +13,18 @@ import masro2a.udacity.com.masro2aapp.common.base.BaseActivity;
 public class ListingActivity extends BaseActivity {
 
     private FloatingActionButton floatingActionButton;
+    private ListingFragment listingFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listing);
         initializeViews();
+        if (savedInstanceState != null)
+            listingFragment = (ListingFragment) getSupportFragmentManager().getFragment(savedInstanceState, ListingFragment.class.getName());
+        else
+            listingFragment = ListingFragment.newInstance();
+        loadFragment();
         setListeners();
     }
 
@@ -33,7 +39,7 @@ public class ListingActivity extends BaseActivity {
     @Override
     protected void loadFragment() {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.container_body, ListingFragment.newInstance()).commit();
+        fragmentTransaction.replace(R.id.container_body, listingFragment).commit();
     }
 
     @Override
@@ -47,4 +53,11 @@ public class ListingActivity extends BaseActivity {
             AddReportActivity.startActivity(ListingActivity.this);
         }
     };
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        if (listingFragment != null)
+            getSupportFragmentManager().putFragment(outState, ListingFragment.class.getName(), listingFragment);
+    }
 }

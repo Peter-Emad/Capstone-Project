@@ -8,13 +8,14 @@ import android.support.v7.widget.Toolbar;
 
 import masro2a.udacity.com.masro2aapp.R;
 import masro2a.udacity.com.masro2aapp.common.base.BaseActivity;
-import masro2a.udacity.com.masro2aapp.posts_listing.ListingFragment;
 
 /**
  * Created by peter on 23/04/18.
  */
 
-public class AddReportActivity extends BaseActivity {
+public class AddReportActivity extends BaseActivity implements AddReportFragment.AddReportInteraction {
+
+    private AddReportFragment addReportFragment;
 
     public static void startActivity(Context context) {
         Intent intent = new Intent(context, AddReportActivity.class);
@@ -25,8 +26,12 @@ public class AddReportActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_report);
+        setContentView(R.layout.activity_add_post);
         initializeViews();
+        if (savedInstanceState != null)
+            addReportFragment = (AddReportFragment) getSupportFragmentManager().getFragment(savedInstanceState, AddReportFragment.class.getName());
+        else
+            addReportFragment = AddReportFragment.newInstance();
         loadFragment();
         setListeners();
     }
@@ -40,11 +45,23 @@ public class AddReportActivity extends BaseActivity {
     @Override
     protected void loadFragment() {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.container_body, AddReportFragment.newInstance()).commit();
+        fragmentTransaction.replace(R.id.container_body, addReportFragment).commit();
     }
 
     @Override
     protected void setListeners() {
 
+    }
+
+    @Override
+    public void onPostAddSuccess() {
+        finish();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        if (addReportFragment != null)
+            getSupportFragmentManager().putFragment(outState, AddReportFragment.class.getName(), addReportFragment);
     }
 }

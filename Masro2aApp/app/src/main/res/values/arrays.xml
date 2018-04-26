@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="car_makes">
+        <item>@string/car_make</item>
+        <item>@string/alfa_romeo</item>
+        <item>@string/audi</item>
+        <item>@string/bmw</item>
+        <item>@string/byd</item>
+        <item>@string/brilliance</item>
+        <item>@string/changan</item>
+        <item>@string/chery</item>
+        <item>@string/chevrolet</item>
+        <item>@string/chrysler</item>
+        <item>@string/citroen</item>
+        <item>@string/daewoo</item>
+        <item>@string/daihatsu</item>
+        <item>@string/dodge</item>
+        <item>@string/fiat</item>
+        <item>@string/ford</item>
+        <item>@string/geely</item>
+        <item>@string/honda</item>
+        <item>@string/hummer</item>
+        <item>@string/hyundai</item>
+        <item>@string/isuzu</item>
+        <item>@string/jac</item>
+        <item>@string/jaguar</item>
+        <item>@string/jeep</item>
+        <item>@string/kia</item>
+        <item>@string/lada</item>
+        <item>@string/lancia</item>
+        <item>@string/land_rover</item>
+        <item>@string/mg</item>
+        <item>@string/mini</item>
+        <item>@string/mazda</item>
+        <item>@string/mercedes</item>
+        <item>@string/mitsubishi</item>
+        <item>@string/nissan</item>
+        <item>@string/opel</item>
+        <item>@string/other_make</item>
+        <item>@string/peugeot</item>
+        <item>@string/porsche</item>
+        <item>@string/proton</item>
+        <item>@string/renault</item>
+        <item>@string/saipa</item>
+        <item>@string/seat</item>
+        <item>@string/senova</item>
+        <item>@string/skoda</item>
+        <item>@string/speranza</item>
+        <item>@string/ssang_yong</item>
+        <item>@string/subaru</item>
+        <item>@string/suzuki</item>
+        <item>@string/toyota</item>
+        <item>@string/volkswagen</item>
+        <item>@string/volvo</item>
+
+
+    </string-array>
+
+
+</resources>

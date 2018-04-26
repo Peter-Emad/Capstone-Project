@@ -7,4 +7,8 @@ import masro2a.udacity.com.masro2aapp.common.base.BaseView;
  */
 
 public interface ListingView extends BaseView {
+
+    void updateAdapter();
+
+    void onError(String message);
 }
