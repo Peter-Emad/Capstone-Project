@@ -35,6 +35,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_margin="@dimen/fab_margin"
+        android:contentDescription="@string/fab_description"
         android:tint="@color/colorWhite"
         app:srcCompat="@android:drawable/ic_input_add" />
 
