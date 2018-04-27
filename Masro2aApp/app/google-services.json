@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "316634449179",
+    "firebase_url": "https://masro2a-app.firebaseio.com",
+    "project_id": "masro2a-app",
+    "storage_bucket": "masro2a-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:316634449179:android:4a7d3ccdda73e9b3",
+        "android_client_info": {
+          "package_name": "masro2a.udacity.com.masro2aapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "316634449179-3c7kitk6pom67hmuog6e4l3js9grlcer.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "masro2a.udacity.com.masro2aapp",
+            "certificate_hash": "eb4a6c412e3f3810ad8e87a6014a0a534ab1322f"
+          }
+        },
+        {
+          "client_id": "316634449179-i1pbhlorep53n53hennc82qmab8c4sh8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0sIchUf4PddrfzoL6ZlnBnHYoTHfGH4I"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "316634449179-i1pbhlorep53n53hennc82qmab8c4sh8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
